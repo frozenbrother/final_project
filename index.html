@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <title>Group 5 Final Project</title>
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Group 5</a><a class="navbar-brand" href="#"><img id="logo" src="img/lungcancer.png"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+	<nav class="navbar navbar-light bg-light">
+		<div class="container">
+			      
+		</div>
+	</nav>
+
+	<nav class="navbar navbar-default"></nav>
+    <svg width="700" height="400"></svg>
+
+    
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="js/d3cloud.js"></script>
+
+    <script>
+
+        var myWords = ["Gender", "Chronic disease", "ShortnessOfBreath", "AGE", "FATIGUE", "SWALLOWINGDIFFICULTY", "SMOKING", "ALLERGY", "CHEST PAIN", "Yellowfingers", "WHEEZING", "COUGHING", "ANXIETY", "ALCOHOLCONSUMING", "PEERPRESSURE"]
+        
+        var margin = { top: 30, right: 50, bottom: 30, left: 50 },
+            width = 600 - margin.left - margin.right,
+            height = 400 - margin.top - margin.bottom;
+        
+        var g = d3.select("svg")
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        d3.csv("data/wordcloud.csv", function (data) {
+            var color = d3.scaleOrdinal(d3.schemeCategory20);
+
+            var categories = d3.keys(d3.nest()
+                .key(function (d) {
+                    return d.State;
+                })
+                .map(data));
+
+            var fontSize = d3.scalePow().exponent(5).domain([0, 1]).range([40, 80,]);
+
+            // Adds a set of variables to each element in the data 
+            var layout = d3.layout.cloud()
+                .size([width, height])
+                .timeInterval(10)
+                .words(data)
+                //.rotate(function(d) { return 0; })
+                .rotate(function () { return ~~(Math.random() * 10) * 90; })
+                .fontSize(function (d, i) { return fontSize(Math.random()); })
+                .fontWeight(["bold"])
+                .text(function (d) { return d.Symp1; })
+                .on("end", draw)
+                .start();
+            
+                var layout = d3.layout.cloud()
+                .size([width, height])
+                .words(myWords.map(function(d) { return {text: d}; }))
+                .padding(10)
+                .fontSize(30)
+                .on("end", draw);
+                layout.start();
+
+            console.log(data)
+
+            function draw(words) {
+                var wordcloud = g.append("g")
+                    .attr('class', 'wordcloud')
+                    .attr("transform", "translate(" + width / 4 + "," + height / 2 + ")");
+
+                wordcloud.selectAll("text")
+                    .data(words)
+                    .enter().append("text")
+                    .attr('class', 'word')
+                    .style("fill", function (d, i) { return color(i); })
+                    .style("font-size", function (d) { return d.size + "px"; })
+                    .style("font-family", function (d) { return d.font; })
+                    .attr("text-anchor", "middle")
+                    .attr("transform", function (d) {
+                        return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                    })
+                    .text(function (d) { return d.text; });
+            };
+        });
+
+    </script>
+
+</body>
+
+<body>
+    <h1>"Welcome to Your Lung Cancer Prediction Page"</h1>
+</body>
+
+<body>
+    <div class="row mb-3">
+        <!-- Inputs for our ML model -->
+        <div class="row mb-3">
+            <label for="inputName" class="col-sm-1 col-form-label">Your Name</label>
+            <div class="row g-3">
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                </div>
+              </div>
+          </div>
+          <fieldset class="row mb-3">
+            <legend class="col-form-label col-sm-2 pt-0">Symptoms</legend>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                <label class="form-check-label" for="gridRadios1">
+                    Smoking
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                <label class="form-check-label" for="gridRadios2">
+                    Yellow Fingers
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+                <label class="form-check-label" for="gridRadios3">
+                    Anxiety
+                </label>
+              </div>
+                <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option4">
+                <label class="form-check-label" for="gridRadios4">
+                    Peer Pressure
+              </label>
+                </div>
+                <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option4">
+                <label class="form-check-label" for="gridRadios4">
+                    Chronic Disease
+              </label>
+                </div>
+                <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option4">
+                <label class="form-check-label" for="gridRadios4">
+                    Fatigue
+               </label>
+                </div>
+                <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option4">
+                <label class="form-check-label" for="gridRadios4">
+                    Allergy
+               </label>
+                </div>
+                <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option4">
+                <label class="form-check-label" for="gridRadios4">
+                Wheezing
+               </label>
+                </div>
+                <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option4">
+               <label class="form-check-label" for="gridRadios4">
+                Alcohol
+               </label>
+                </div>
+                <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option4">
+                <label class="form-check-label" for="gridRadios4">
+                Coughing
+               </label>
+                </div>
+                <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option4">
+               <label class="form-check-label" for="gridRadios4">
+                Shortness of breath
+               </label>
+                </div>
+                <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option4">
+               <label class="form-check-label" for="gridRadios4">
+                Swallowing difficulty
+               </label>
+                </div>
+                <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option4">
+               <label class="form-check-label" for="gridRadios4">
+                Chest pain
+            </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <form action="{{ url_for('predict')}}" method="post">
+            <form method=post enctype=multipart/form-data>
+                <p class="text-light">
+                   <input type=file name=file>
+                   <input type=submit value=Upload>
+                </p>
+             </form>
+           
+           
+          
+           <input type="text" name="Fatigue" placeholder="Fatigue" required="required"/>
+           <input type="text" name="Allergy" placeholder="Allergy" required="required"/>
+           <input type="text" name="Wheezing" placeholder="Wheezing" required="required"/>
+           <input type="text" name="Alcohol" placeholder="Alcohol"  required="required"/>
+           <input type="text" name="Coughing" placeholder="Coughing"  required="required"/>
+           <input type="text" name="Shortness of breath" placeholder="Shortness of breath"  required="required"/>
+           <input type="text" name="Swallowing difficulty" placeholder="Swallowing difficulty" required="required"/>
+           <input type="text" name="Chest pain" placeholder="Chest pain"  required="required"/>
+
+           <button type="submit" class="btn btn-primary btn-block btn-large">Do you have a lung cancer?</button>
+         </form>
+   
+       <br>
+       <br>
+     <b> {{ Result }} </b>
+    </div>
+   </body>
+   <body style="background-color:black">
+    <div id="maintext" style="position:absolute; margin:auto; width:700px; height:200px; text-align:center; top:0; bottom: 0; left: 0; right: 0;">  
+      <h1 class="text-light mb-2"> Upload your image to be classified! </h1>
+      <h4 class="text-light mb-5">(Please upload images less than 500kb in size)</h4>
+      <form method=post enctype=multipart/form-data>
+         <p class="text-light">
+            <input type=file name=file>
+            <input type=submit value=Upload>
+         </p>
+      </form>
+    </div>
+    </body>
