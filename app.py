@@ -37,7 +37,7 @@ def predict():
         elif pred == 1:
             return 'Result:- You should consult with doctor, The model has predicted that you will suffer form cancer.'
     
-    return render_template('home.html',statement=statement())
+    return render_template('index.html',statement=statement())
 
 
 if __name__ == "__main__":
