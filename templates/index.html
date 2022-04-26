@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+      <title>Group 5</title>
+      <style>
+         .grid_system  div[class^="col"] {
+         border: 1px solid white;
+         background: #cec3c3;
+         text-align: center;
+         padding-top: 50px;
+         padding-bottom: 25px
+         }
+      </style>
+</head>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="img/lungcancer.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+        Group 5 Final Project 
+      </a>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+        </ul>
+    </div>
+</nav>
+ 
+<body>
+    <div class="grid_system"></div>
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Other Options 
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Option 1</a>
+                  <a class="dropdown-item" href="#">Option 2</a>
+                  <a class="dropdown-item" href="#">Option 3</a>
+                </div>
+              </div>
+        </div>
+        <body>
+            <div class="container">
+                <div class="p-5 my-4 bg-light rounded-3">
+                    <h1>Lung Prediction Page</h1>
+                    <p class="lead">Lung cancer is the fifth most common cancer in Australia and accounts for 9% of all cancers.
+                        It was estimated that there would be 13,810 new cases of lung cancer diagnosed in Australian in 2021.
+                        The risk of being diagnosed with lung cancer in Australia by age 90 is 1 in 18.
+                      </p></p>
+                    <p><a href="https://www.cancer.org.au/cancer-information/types-of-cancer/lung-cancer" target="_blank" class="btn btn-success btn-lg">Let's find out more</a></p>
+                </div>
+            <div class="row">
+                    <div class="col-md-4">
+                        <h2>Lung cancer symptoms</h2>
+                        <p>The main symptoms of lung cancer are:
+
+                            <br>1. a persistent new cough (lasting more than three weeks) or a change in a cough you’ve had for a long time
+                            <br>2. breathlessness
+                            <br>3. pain in the chest or shoulder
+                            <br>4. chest infection that lasts more than three weeks or that keeps coming back
+                            <br>5. coughing or spitting up blood.</p>
+                        <p><a href="https://www.cancercouncil.com.au/lung-cancer/symptoms/" target="_blank" class="btn btn-success">Learn More &raquo;</a></p>
+                    </div>
+                <div class="col-md-4">
+                        <h2>Lung cancer diagnosis</h2>
+                        <p>Your doctors will perform a number of tests to make a diagnosis, and work out whether the cancer has spread beyond the lung. The test results will help them recommend a treatment plan for you.</p>
+                        <p><a href="https://www.cancercouncil.com.au/lung-cancer/diagnosis/" target="_blank" class="btn btn-success">Learn More &raquo;</a></p>
+                </div>
+                    <div class="col-md-4">
+                        <h2>Lung cancer treatment</h2>
+                        <p>Treatment for lung cancer will depend on the type of lung cancer you have, the stage of the cancer, how well you can breathe (your lung function) and your general health. If you are a smoker, your doctor will advise you to stop smoking before you start treatment.</p>
+                        <p><a href="https://www.cancercouncil.com.au/lung-cancer/treatment/" target="_blank" class="btn btn-success">Learn More &raquo;</a></p>
+                    </div>
+                </div>
+                <hr>
+            <div class="grid_system">
+              <div class="row">
+                <div class="a">
+                    <h3></h3><p style="color: rgb(0, 0, 0);font-size:20px"></h3> 
+                      <p></p><em>Start your lung cancer prediction today!</em>
+                    </p>
+                </div> 
+              </div>
+                <div class="row">
+                    <div class="col-sm-5">
+                </div>
+              </div>
+              <div><div style="color:rgb(120, 10, 130)">
+                
+                <form style="margin-top: 50px;padding-left:200px;" action="{{url_for('predict')}}" method="post">
+                 
+               </div>
+              </div>
+            <div class="grid_system">    
+              <form class="row">
+                <div class="col-sm-2.5">
+                    <input type="text" placeholder="Person's Age" aria-label="default input example" required='required' name="b">
+                </div>
+                <div class="col-sm-2.5">
+                    <h4>Your gender</h4><br><select name="gender" id="gender" required="required">
+                        <option value="0">Female</option>
+                        <option value="1">Male</option>
+                    </select>
+                </div>
+                <div class="col-sm-2.5">
+                    <h4>Do you smoke?</h4><br><select name="smoking" id="smoking" required="required">
+                        <option value="0">Smoking</option>
+                        <option value="1">Not Smoking</option>
+                    </select>
+                </div>
+                <div class="col-sm-2.5">
+                    <h4>Do you have yellow finger?</h4><br><select name="fingers" id="yellow_fingers" required="required">
+                        <option value="0">Yellowing of the fingernails </option>
+                        <option value="1">Pink color</option>
+                    </select>
+                </div>
+                <div class="col-sm-2.5">
+                    <h4>Do you feel anxious ?</h4><br><select name="anxiety" id="anxiety" required="required">
+                         <option value="0">Yes</option>
+                         <option value="1">No</option>
+                    </select>
+                </div>
+                <div class="col-sm-2.5">
+                    <h4>Do you have chronic disease ?</h4><br><select name="chronic" id="chronic_disease" required="required">
+                         <option value="0">Yes</option>
+                         <option value="1">No</option>
+                    </select>
+                </div>
+                <div class="col-sm-2.5">
+                    <h4>Do you feel pressured from your peers ?</h4><br><select name="peer" id="peer_pressure" required="required">
+                          <option value="0">Yes</option>
+                          <option value="1">No</option>
+                    </select>
+                </div>
+                <div class="col-sm-2.5">
+                    <h4>Do you drink alcohol ?</h4><br><select name="alcohol" id="alcohol" required="required">
+                          <option value="0">Yes</option>
+                          <option value="1">No</option>
+                    </select>
+                </div>
+                <div class="col-sm-2.5">
+                    <h4>Do you feel fatigue ?</h4><br><select name="fatigue" id="fatigue" required="required">
+                          <option value="0">Yes</option>
+                          <option value="1">No</option>
+                    </select>
+                </div>
+                <div class="col-sm-2.5">
+                    <h4>Any allergies ?</h4><br><select name="allergy" id="allergy" required="required">
+                          <option value="0">Yes</option>
+                          <option value="1">No</option>
+                    </select>
+                </div>    
+                <div class="col-sm-2.5">
+                    <h4>Do you cough?</h4><br><select name="coughing" id="coughing" required="required">
+                          <option value="0">Yes</option>
+                          <option value="1">No</option>
+                    </select>
+                </div>                     
+                <div class="col-sm-2.5">
+                    <h4>Do you wheeze?</h4><br><select name="wheezing" id="wheezing" required="required">
+                          <option value="0">Yes</option>
+                          <option value="1">No</option>
+                    </select>
+                </div> 
+                <div class="col-sm-2.5">
+                    <h4>Any shortness of breath ?</h4><br><select name="shortness_of_breath" id="shortness_of_breath" required="required">
+                          <option value="0">Yes</option>
+                          <option value="1">No</option>
+                    </select>
+                </div>
+                <div class="col-sm-2.5">
+                    <h4>Any chest pains?</h4><br><select name="chest_pain" id="chest_pain" required="required">
+                          <option value="0">Yes</option>
+                          <option value="1">No</option>
+                    </select>
+                </div>
+                <div class="col-sm-2.5">
+                    <h4>Any swallowing difficulties?</h4><br><select name="swallowing_difficulty" id="swallowing_difficulty" required="required">
+                        <option value="0">Yes</option>
+                        <option value="1">No</option>
+                    </select>
+                </div>
+                </div>
+                    <br><br><button id="sub" type="submit ">Your lung cancer prediction</button>
+                    <br>
+                </form>  
+              
+              <br><br><h3>{{ prediction_text }}<h3></h3>
+            </div>
+        
+        <footer class ="footer">
+            abcd
+        </footer>
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script
+</body>
+</html>
