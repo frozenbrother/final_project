@@ -93,27 +93,23 @@
               </div>
                 <div class="row">
                     <div class="col-sm-5">
-                    <form action="{{url_for('predict')}}" method="post">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name"><br><br>
-                        <label for="age">Age:</label>
-                        <input type="text" id="age" name="age"><br><br>
-                        <input type="submit" value="Submit">
-                    </form>
                 </div>
               </div>
               <div><div style="color:rgb(120, 10, 130)">
                 
-                <form action="{{ url_for('predict')}}" method="post">
+                <form style="margin-top: 50px;padding-left:200px;" action="{{url_for('predict')}}" method="post">
                  
                </div>
               </div>
             <div class="grid_system">    
               <form class="row">
                 <div class="col-sm-2.5">
+                    <input type="text" placeholder="Person's Age" aria-label="default input example" required='required' name="b">
+                </div>
+                <div class="col-sm-2.5">
                     <h4>Your gender</h4><br><select name="gender" id="gender" required="required">
-                        <option value="F">Female</option>
-                        <option value="M">Male</option>
+                        <option value="0">Female</option>
+                        <option value="1">Male</option>
                     </select>
                 </div>
                 <div class="col-sm-2.5">
@@ -123,7 +119,7 @@
                     </select>
                 </div>
                 <div class="col-sm-2.5">
-                    <h4>Do you have yellow finger?</h4><br><select name="yellow_fingers" id="yellow_fingers" required="required">
+                    <h4>Do you have yellow finger?</h4><br><select name="fingers" id="yellow_fingers" required="required">
                         <option value="0">Yellowing of the fingernails </option>
                         <option value="1">Pink color</option>
                     </select>
@@ -135,13 +131,13 @@
                     </select>
                 </div>
                 <div class="col-sm-2.5">
-                    <h4>Do you have chronic disease ?</h4><br><select name="chronic_disease" id="chronic_disease" required="required">
+                    <h4>Do you have chronic disease ?</h4><br><select name="chronic" id="chronic_disease" required="required">
                          <option value="0">Yes</option>
                          <option value="1">No</option>
                     </select>
                 </div>
                 <div class="col-sm-2.5">
-                    <h4>Do you feel pressured from your peers ?</h4><br><select name="peer_pressure" id="peer_pressure" required="required">
+                    <h4>Do you feel pressured from your peers ?</h4><br><select name="peer" id="peer_pressure" required="required">
                           <option value="0">Yes</option>
                           <option value="1">No</option>
                     </select>
