@@ -41,3 +41,4 @@ traitlets==5.1.1
 wcwidth==0.2.5
 Werkzeug==2.0.3
 pandas==1.4.2
+sklearn==1.0.2
