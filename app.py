@@ -4,7 +4,7 @@ import pickle
 import numpy as np
 
 app = Flask(__name__)
-model = pickle.load(open('model3.pkl', 'rb'))
+model = pickle.load(open('model.pkl', 'rb'))
 
 
 @app.route('/',methods=['POST','GET'])
