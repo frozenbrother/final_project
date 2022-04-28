@@ -9,7 +9,7 @@ model = pickle.load(open('model.pkl', 'rb'))
 
 @app.route('/',methods=['POST','GET'])
 def home():
-    return render_template("index1.html")
+    return render_template("index.html")
 
 @app.route('/predict',methods=['POST','GET'])
 def predict():
@@ -33,11 +33,11 @@ def predict():
 
     def statement():
         if pred == 0:
-            return 'Result:- The model has predicted that you will not suffer from any cancer but you should take care of your self.'
+            return 'Result:- The model has predicted that you may not suffer from lung cancer but you should take care of your health.'
         elif pred == 1:
-            return 'Result:- You should consult with doctor, The model has predicted that you will suffer form cancer.'
+            return 'Result:- You should consider to consult with a doctor. The model has predicted that you may suffer from lung cancer.'
     
-    return render_template('index1.html',statement=statement())
+    return render_template('index.html',statement=statement())
 
 
 if __name__ == "__main__":
