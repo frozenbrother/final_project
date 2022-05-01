@@ -15,6 +15,6 @@ Raymond Chau, Hayley Win, Tuflikha Putri and Anita Rynkanen
 
 **Links:**
 
-[Application](https://finalprojectlungcancer.herokuapp.com/)
+* [Application](https://finalprojectlungcancer.herokuapp.com/)
 
-Presentation:
+* Presentation:
