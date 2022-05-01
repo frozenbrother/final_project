@@ -6,10 +6,20 @@ import numpy as np
 app = Flask(__name__)
 model = pickle.load(open('model.pkl', 'rb'))
 
-
+#Home
 @app.route('/',methods=['POST','GET'])
 def home():
     return render_template("index.html")
+
+#Index
+@app.route('/index.html')
+def index():
+    return render_template('index.html')
+
+#Info
+@app.route('/info.html')
+def info():
+        return render_template('info.html')
 
 @app.route('/predict',methods=['POST','GET'])
 def predict():
