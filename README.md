@@ -1,6 +1,7 @@
 # final_project
 
-**Project team**
+**Project team:**
+
 Raymond Chau, Hayley Win, Tuflikha Putri and Anita Rynkanen
 
 **Data source:**
@@ -8,11 +9,11 @@ Raymond Chau, Hayley Win, Tuflikha Putri and Anita Rynkanen
 * [Kaggle](https://www.kaggle.com/datasets/mysarahmadbhat/lung-cancer)
 
 
-**Project proposal**
+**Project proposal:**
 
-**Development process**
+**Development process:**
 
-**Links**
+**Links:**
 
 [Application](https://finalprojectlungcancer.herokuapp.com/)
 
