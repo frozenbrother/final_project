@@ -1,6 +1,6 @@
 # final_project
 
-**Project team:**
+**Project team**
 Raymond Chau, Hayley Win, Tuflikha Putri and Anita Rynkanen
 
 **Data source:**
