@@ -11,5 +11,6 @@ Raymond Chau, Hayley Win, Tuflikha Putri and Anita Rynkanen
 
 **Links**
 
-*Application
-*Presentation
+Application
+
+Presentation
