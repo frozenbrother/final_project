@@ -9,14 +9,15 @@ Raymond Chau, Hayley Win, Tuflikha Putri and Anita Rynkanen
 * [Kaggle](https://www.kaggle.com/datasets/mysarahmadbhat/lung-cancer)
 
 
-**Aim of the project:**
+**Project Description:**
 
 Aim of this project was to build a web application that predicts possible occurence of lung cancer using a machine learning model.
 
 **Development process:**
 
-Logistic Regression Model was applied to predict potential lung cancer using a dataset dowloaded from Kaggle. ScikitLearn was used to train and test the model. 
-Model was deployed using Flask API. HTML templates were created for the website where users can enter preferred options and display the prediction.
+To gauge if the dataset was suitable, Plotly was used for initial exploration and visualisation. Data was modify and encoded using Jupyter Notebook. As the dataset was noted to be imbalanced SMOTE was used for oversampling the dataset. After confirming that the balance of positive and negative classes is 50/50 the dataset was split into training and testing sets and created a logistic regression model using ScikitLearn.
+
+Model was deployed using Flask API. HTML, CSS and Bootstrap were used to create a website where users can enter preferred options and display the prediction.
 
 
 **Links:**
