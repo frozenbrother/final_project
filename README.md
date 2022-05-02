@@ -14,6 +14,7 @@ Raymond Chau, Hayley Win, Tuflikha Putri and Anita Rynkanen
 Aim of this project was to build a web application that predicts possible occurence of lung cancer using a machine learning model.
 
 **Development process:**
+
 Logistic Regression Model was applied to predict potential lung cancer using a dataset dowloaded from Kaggle. ScikitLearn was used to train and test the model. 
 Model was deployed using Flask API. HTML templates were created for the website where users are able to enter preferred options and display the prediction.
 
